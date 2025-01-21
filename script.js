@@ -115,11 +115,54 @@ const gameMaster = (function (){
         }
     };
 
-   while(!gameWinner()){
+   /*while(!gameWinner()){
         getActivePlayer();
         var inputRow = prompt(`${getActivePlayer().name} Insert Row`), inputColumn = prompt(`${getActivePlayer().name} Insert Column`);
         console.log("Row: " + inputRow + " Column: " + inputColumn);
         playRound(inputRow, inputColumn);
         switchPlayerTurn();
-   } 
+   } */
+
+    const getCompChoice = () =>{
+        let choiceRow = Math.floor(Math.random()*3);
+        let choiceColumn = Math.floor(Math.random()*3);
+        return {choiceRow, choiceColumn};
+    };
+
+    return{getActivePlayer};
 })();
+
+function screenDOMController(){
+
+    const gameBoardContainer = document.getElementsByClassName("gameboard-container");
+
+    for(let i=0; i < 9; i++){
+
+        const gameBoardCell = document.createElement("div");
+
+        const image = document.createElement("img");
+
+        image.classList.add("svg-styles", "hidden-svg");
+
+        let activePlayer = gameMaster.getActivePlayer();
+
+        if(activePlayer.name == "Player One" ){
+
+            image.setAttribute("src", "svgs/crossbones.svg");
+        }
+        else{
+            image.setAttribute("src", "svgs/skull.svg");
+        }
+
+        gameBoardCell.addEventListener("click", ()=>{
+                 image.classList.replace("hidden-svg", "unhidden-svg")
+                });
+
+        gameBoardCell.classList.add("cell");
+
+        gameBoardContainer[0].appendChild(gameBoardCell).appendChild(image);
+    }
+
+
+
+    } screenDOMController();

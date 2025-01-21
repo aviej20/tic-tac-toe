@@ -1,0 +1,72 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: "UnifrakturCook", serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.header-container{
+    padding: 1rem;
+    text-align: center;
+}
+
+.main-container{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url("imgs/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.gameboard-container{
+    display: grid;
+    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+    gap: 1rem;
+    margin: 1rem 2rem;
+    padding: 2rem;
+    background-color: #e4e4e4;
+    border: 2px rgb(117, 117, 117) solid;
+    border-radius: 1rem;
+    -webkit-box-shadow: 0px 0px 15px 5px rgba(138, 138, 138, 1);
+    -moz-box-shadow: 0px 0px 15px 5px rgba(138, 138, 138, 1);
+    box-shadow: 0px 0px 15px 5px rgba(138, 138, 138, 1);
+}
+
+.cell{
+    display: flex;
+    flex-grow: 1;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 1rem;
+    padding: 3rem;
+}
+
+.cell:hover{
+    cursor: pointer;
+}
+
+.svg-styles{
+    height: 100px;
+}
+
+.hidden-svg{
+    visibility: hidden;
+}
+
+.unhidden-svg{
+    visibility: visible;
+}
+
+.footer-container{
+    background-color: black;
+    height: 5rem;
+}
