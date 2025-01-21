@@ -115,19 +115,25 @@ const gameMaster = (function (){
         }
     };
 
-   /*while(!gameWinner()){
-        getActivePlayer();
-        var inputRow = prompt(`${getActivePlayer().name} Insert Row`), inputColumn = prompt(`${getActivePlayer().name} Insert Column`);
-        console.log("Row: " + inputRow + " Column: " + inputColumn);
-        playRound(inputRow, inputColumn);
-        switchPlayerTurn();
-   } */
-
     const getCompChoice = () =>{
         let choiceRow = Math.floor(Math.random()*3);
         let choiceColumn = Math.floor(Math.random()*3);
         return {choiceRow, choiceColumn};
     };
+
+   while(!gameWinner()){
+        let currentPlayer = getActivePlayer();
+        /*var inputRow = prompt(`${getActivePlayer().name} Insert Row`), inputColumn = prompt(`${getActivePlayer().name} Insert Column`);
+        console.log("Row: " + inputRow + " Column: " + inputColumn);*/
+
+        if(currentPlayer.name == "Player Two"){
+            let compChoice = getCompChoice();
+            playRound(compChoice.choiceRow, compChoice.choiceColumn);
+        }else{
+            let playerCHoice;
+        }
+        switchPlayerTurn();
+   } 
 
     return{getActivePlayer};
 })();
