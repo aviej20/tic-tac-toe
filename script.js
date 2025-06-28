@@ -191,7 +191,8 @@ const gameMaster = (function (){
                 validMove = gameBoard.addMarker(currentPlayer, compChoice.choiceRow, compChoice.choiceColumn);
             }
     
-            screenDOMController.updateCellImage(currentPlayer, compChoice.choiceRow, compChoice.choiceColumn);
+
+            setTimeout( () => {screenDOMController.updateCellImage(currentPlayer, compChoice.choiceRow, compChoice.choiceColumn)}, 1000);
             gameBoard.printBoard();
     
             if (gameWinner()) {
